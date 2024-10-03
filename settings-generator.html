@@ -1,0 +1,339 @@
+<html>
+    <head>
+        <title>Enshrouded | Server Settings</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h3>Server Information</h3>
+            <div class="server-info-grid">
+                <div class="input-group">
+                    <label for="name">Server Name</label>
+                    <p class="description">Name of your server as it will appear in the server list. Please use non-offensive server names.</p>
+                    <input type="text" id="name" placeholder="Server Name" value="Server Name">
+                </div>
+                <div class="input-group">
+                    <label for="slotCount">Slots</label>
+                    <p class="description">Maximum number of players, slot count must be between 1 and 16.</p>
+                    <select id="slotCount">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16" selected>16</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="ip">IP Address</label>
+                    <p class="description">The IP address for your server.</p>
+                    <input type="text" id="ip" placeholder="0.0.0.0" value="0.0.0.0">
+                </div>
+                <div class="input-group">
+                    <label for="queryPort">Port</label>
+                    <p class="description">The port number for your server.</p>
+                    <input type="text" id="queryPort" placeholder="15637" value="15637">
+                </div>
+                <div class="input-group">
+                    <label for="saveDirectory">Save Directory</label>
+                    <p class="description">Location where save files are stored.</p>
+                    <input type="text" id="saveDirectory" placeholder="./savegame" value="./savegame">
+                </div>
+                <div class="input-group">
+                    <label for="logDirectory">Log Directory</label>
+                    <p class="description">Directory for storing server logs.</p>
+                    <input type="text" id="logDirectory" placeholder="./logs" value="./logs">
+                </div>
+            </div>
+
+            <h3>Game Settings</h3>
+            <div class="game-settings-grid">
+                <div class="input-group">
+                    <label for="gameSettingsPreset">Difficulty</label>
+                    <p class="description">Difficulty setting presets and custom settings.</p>
+                    <select id="gameSettingsPreset">
+                        <option value="default">Default - This is the default difficulty setting, recommended for first-time players.</option>
+                        <option value="relaxed">Relaxed - Reduces the amount of enemies and provides players with more resources and loot.</option>
+                        <option value="hard">Hard - Increases the amount of enemies and makes them more aggressive to give players a tougher combat experience.</option>
+                        <option value="survival">Survival - For those who seek punishment with additional survival mechanics on top of more aggressive enemies.</option>
+                        <option value="custom" selected>Custom - Individual settings can be tweaked below.</option>
+                    </select>
+                </div>
+            </div>
+            <h3>Player Attributes</h3>
+            <div class="grid player-attributes">
+                <div class="input-group">
+                    <label for="playerHealthFactor">Player Health Factor</label>
+                    <p class="description">Scales the max health for players by a factor.</p>
+                    <input type="range" id="playerHealthFactor" min="0.25" max="4" step="0.01" value="1" oninput="document.getElementById('playerHealthFactorValue').textContent = this.value">
+                    <span id="playerHealthFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.25, <strong>Max:</strong> 4, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="playerManaFactor">Player Mana Factor</label>
+                    <p class="description">Scales the max mana for players by a factor.</p>
+                    <input type="range" id="playerManaFactor" min="0.25" max="4" step="0.01" value="1" oninput="document.getElementById('playerManaFactorValue').textContent = this.value">
+                    <span id="playerManaFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.25, <strong>Max:</strong> 4, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="playerStaminaFactor">Player Stamina Factor</label>
+                    <p class="description">Scales the max stamina for players by a factor.</p>
+                    <input type="range" id="playerStaminaFactor" min="0.25" max="4" step="0.01" value="1" oninput="document.getElementById('playerStaminaFactorValue').textContent = this.value">
+                    <span id="playerStaminaFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.25, <strong>Max:</strong> 4, <strong>Default:</strong> 1</p>
+                </div>
+            </div>
+
+            <h3>Combat and Damage</h3>
+            <div class="grid combat-grid">
+                <div class="input-group">
+                    <label for="enemyDamageFactor">Enemy Damage</label>
+                    <p class="description">Scales all enemy damage, except for bosses. In-game, the factor is represented by a percentage.</p>
+                    <input type="range" id="enemyDamageFactor" min="0.25" max="5" step="0.01" value="1" oninput="document.getElementById('enemyDamageFactorValue').textContent = this.value">
+                    <span id="enemyDamageFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.25, <strong>Max:</strong> 5, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="enemyHealthFactor">Enemy Health</label>
+                    <p class="description">Scales all enemy health, except for bosses. In-game, the factor is represented by a percentage.</p>
+                    <input type="range" id="enemyHealthFactor" min="0.25" max="5" step="0.01" value="1" oninput="document.getElementById('enemyHealthFactorValue').textContent = this.value">
+                    <span id="enemyHealthFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.25, <strong>Max:</strong> 5, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="enemyStaminaFactor">Enemy Stamina</label>
+                    <p class="description">Scales all enemy stamina by this value. It will take longer to stun enemies with a higher enemy stamina. This excludes bosses. Ingame, the factor is represented by a percentage.</p>
+                    <input type="range" id="enemyStaminaFactor" min="0.5" max="2" step="0.01" value="1" oninput="document.getElementById('enemyStaminaFactorValue').textContent = this.value">
+                    <span id="enemyStaminaFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.5, <strong>Max:</strong> 2, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="bossDamageFactor">Boss Damage</label>
+                    <p class="description">Scales boss damage. In-game, the factor is represented by a percentage.</p>
+                    <input type="range" id="bossDamageFactor" min="0.25" max="5" step="0.01" value="1" oninput="document.getElementById('bossDamageFactorValue').textContent = this.value">
+                    <span id="bossDamageFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.25, <strong>Max:</strong> 5, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="bossHealthFactor">Boss Health</label>
+                    <p class="description">Scales boss health. In-game, the factor is represented by a percentage.</p>
+                    <input type="range" id="bossHealthFactor" min="0.25" max="5" step="0.01" value="1" oninput="document.getElementById('bossHealthFactorValue').textContent = this.value">
+                    <span id="bossHealthFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.25, <strong>Max:</strong> 5, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="threatBonus">Threat</label>
+                    <p class="description">Scales the frequency of enemy attacks (excluding bosses). In-game, the factor is represented by a percentage.</p>
+                    <input type="range" id="threatBonus" min="0.25" max="4" step="0.01" value="1" oninput="document.getElementById('threatBonusValue').textContent = this.value">
+                    <span id="threatBonusValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.25, <strong>Max:</strong> 4, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="enemyPerceptionRangeFactor">Enemy Perception</label>
+                    <p class="description">Scales how far enemies can see and hear the player. This excludes bosses. Ingame, the factor is represented by a percentage.</p>
+                    <input type="range" id="enemyPerceptionRangeFactor" min="0.5" max="2" step="0.01" value="1" oninput="document.getElementById('enemyPerceptionRangeFactorValue').textContent = this.value">
+                    <span id="enemyPerceptionRangeFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.5, <strong>Max:</strong> 2, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="aggroPoolAmount">Enemy Attack Speed</label>
+                    <p class="description">This setting controls how many enemies are allowed to attack at the same time. Ingame, the factor is represented by a percentage.</p>
+                    <select id="aggroPoolAmount">
+                        <option value="Few">Few</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Many">Many</option>
+                        <option value="Extreme">Extreme</option>
+                    </select>
+                    <p class="description"><strong>Options:</strong> Few, Normal, Many, Extreme, <strong>Default:</strong> Normal</p>
+                </div>
+            </div>
+
+            <h3>Environmental Settings</h3>
+            <div class="grid environmental-grid">
+                <div class="input-group">
+                    <label for="dayTimeDuration">Daytime Duration</label>
+                    <p class="description">Scales the length of daytime. The unit is nanoseconds, and in-game the time is displayed in minutes.</p>
+                    <input type="range" id="dayTimeDuration" min="2" max="60" step="1" value="30" oninput="document.getElementById('dayTimeDurationValue').textContent = this.value">
+                    <span id="dayTimeDurationValue">30</span>
+                    <p class="description"><strong>Min:</strong> 2 minutes, <strong>Max:</strong> 60 minutes, <strong>Default:</strong> 30 minutes</p>
+                </div>
+                <div class="input-group">
+                    <label for="nightTimeDuration">Nighttime Duration</label>
+                    <p class="description">Scales the length of nighttime. The unit is nanoseconds, and in-game the time is displayed in minutes.</p>
+                    <input type="range" id="nightTimeDuration" min="2" max="60" step="1" value="12" oninput="document.getElementById('nightTimeDurationValue').textContent = this.value">
+                    <span id="nightTimeDurationValue">12</span>
+                    <p class="description"><strong>Min:</strong> 2 minutes, <strong>Max:</strong> 60 minutes, <strong>Default:</strong> 12 minutes</p>
+                </div>
+                <div class="input-group">
+                    <label for="randomSpawnerAmount">Enemy Amount</label>
+                    <p class="description">Controls the number of enemies in the world.</p>
+                    <select id="randomSpawnerAmount">
+                        <option value="Few">Few</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Many">Many</option>
+                        <option value="Extreme">Extreme</option>
+                    </select>
+                    <p class="description"><strong>Options:</strong> Few, Normal, Many, Extreme, <strong>Default:</strong> Normal</p>
+                </div>
+                <div class="input-group">
+                    <label for="pacifyAllEnemies">Pacify Enemies</label>
+                    <p class="description">If turned on, enemies won't attack players unless provoked. Bosses are excluded.</p>
+                    <label class="toggle-container">
+                        <input type="checkbox" id="pacifyAllEnemies">
+                        <span class="slider"></span>
+                    </label>
+                    <p class="description"><strong>Options:</strong> true/false, <strong>Default:</strong> false</p>
+                </div>
+                <div class="input-group">
+                    <label for="shroudTimeFactor">Shroud Time Duration</label>
+                    <p class="description">Scales how long player characters can remain within the Shroud. Ingame, the factor is represented by a percentage.</p>
+                    <input type="range" id="shroudTimeFactor" min="0.5" max="2" step="0.01" value="1" oninput="document.getElementById('shroudTimeFactorValue').textContent = this.value">
+                    <span id="shroudTimeFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.5, <strong>Max:</strong> 2, <strong>Default:</strong> 1</p>
+                </div>
+            </div>
+
+            <h3>Gameplay Settings</h3>
+            <div class="grid gameplay-grid">
+                <div class="input-group">
+                    <label for="foodBuffDurationFactor">Change Food Buff Duration</label>
+                    <p class="description">Scales food buff durations. Ingame, the factor is represented by a percentage.</p>
+                    <input type="range" id="foodBuffDurationFactor" min="0.5" max="2" step="0.01" value="1" oninput="document.getElementById('foodBuffDurationValue').textContent = this.value">
+                    <span id="foodBuffDurationValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.5, <strong>Max:</strong> 2, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="fromHungerToStarving">Hunger to Starvation Duration</label>
+                    <p class="description">This setting controls the length of the hungry state before the starving sets in. The unit in this setting is nanoseconds. Ingame the time is displayed in minutes.</p>
+                    <input type="range" id="fromHungerToStarving" min="5" max="20" step="1" value="10" oninput="document.getElementById('fromHungerToStarvingValue').textContent = this.value">
+                    <span id="fromHungerToStarving">12</span>
+                    <p class="description"><strong>Min:</strong> 5 minutes, <strong>Max:</strong> 20 minutes, <strong>Default:</strong> 10 minutes</p>
+                </div>
+                <div class="input-group">
+                    <label for="enableStarvingDebuff">Enable Starvation Debuff</label>
+                    <p class="description">Enables hunger and starvation. If not fed, players lose health until death.</p>
+                    <label class="toggle-container">
+                        <input type="checkbox" id="enableStarvingDebuff">
+                        <span class="slider"></span>
+                    </label>
+                    <p class="description"><strong>Options:</strong> true/false, <strong>Default:</strong> false</p>
+                </div>
+                <div class="input-group">
+                    <label for="enableDurability">Weapon Durability</label>
+                    <p class="description">If this is set to “false,” weapons won’t break anymore.</p>
+                    <label class="toggle-container">
+                        <input type="checkbox" id="enableDurability" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <p class="description"><strong>Options:</strong> true/false, <strong>Default:</strong> true</p>
+                </div>
+                <div class="input-group">
+                    <label for="tombstoneMode">Player Tombstones</label>
+                    <p class="description">Determines what happens to items when a player dies. Items are stored in a tombstone.</p>
+                    <select id="tombstoneMode">
+                        <option value="AddBackpackMaterials" selected>Add Backpack Materials</option>
+                        <option value="Everything">Everything</option>
+                        <option value="NoTombstone">No Tombstone</option>
+                    </select>
+                    <p class="description"><strong>Options:</strong> AddBackpackMaterials, Everything, NoTombstone, <strong>Default:</strong> AddBackpackMaterials</p>
+                </div>
+                <div class="input-group">
+                    <label for="miningDamageFactor">Mining Damage Factor</label>
+                    <p class="description">Scales the mining damage for players by a factor.</p>
+                    <input type="range" id="miningDamageFactor" min="0.25" max="5" step="0.01" value="1" oninput="document.getElementById('miningDamageFactorValue').textContent = this.value">
+                    <span id="miningDamageFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.25, <strong>Max:</strong> 5, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="plantGrowthSpeedFactor">Plant Growth Speed Factor</label>
+                    <p class="description">Scales plant growth speed by a factor.</p>
+                    <input type="range" id="plantGrowthSpeedFactor" min="0.5" max="2" step="0.01" value="1" oninput="document.getElementById('plantGrowthSpeedFactorValue').textContent = this.value">
+                    <span id="plantGrowthSpeedFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.5, <strong>Max:</strong> 2, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="resourceDropStackAmountFactor">Resource Drop Stack Amount Factor</label>
+                    <p class="description">Scales resource drop stack amounts by a factor.</p>
+                    <input type="range" id="resourceDropStackAmountFactor" min="0.5" max="2" step="0.01" value="1" oninput="document.getElementById('resourceDropStackAmountFactorValue').textContent = this.value">
+                    <span id="resourceDropStackAmountFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.5, <strong>Max:</strong> 2, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="factoryProductionSpeedFactor">Factory Production Speed Factor</label>
+                    <p class="description">Scales factory production speed by a factor.</p>
+                    <input type="range" id="factoryProductionSpeedFactor" min="0.5" max="2" step="0.01" value="1" oninput="document.getElementById('factoryProductionSpeedFactorValue').textContent = this.value">
+                    <span id="factoryProductionSpeedFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.5, <strong>Max:</strong> 2, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="perkUpgradeRecyclingFactor">Perk Upgrade Recycling Factor</label>
+                    <p class="description">Scales the recycling factor for perk upgrades.</p>
+                    <input type="range" id="perkUpgradeRecyclingFactor" min="0.1" max="1" step="0.01" value="0.5" oninput="document.getElementById('perkUpgradeRecyclingFactorValue').textContent = this.value">
+                    <span id="perkUpgradeRecyclingFactorValue">0.5</span>
+                    <p class="description"><strong>Min:</strong> 0.1, <strong>Max:</strong> 1, <strong>Default:</strong> 0.5</p>
+                </div>
+                <div class="input-group">
+                    <label for="perkCostFactor">Perk Cost Factor</label>
+                    <p class="description">Scales perk costs by a factor.</p>
+                    <input type="range" id="perkCostFactor" min="0.5" max="2" step="0.01" value="1" oninput="document.getElementById('perkCostFactorValue').textContent = this.value">
+                    <span id="perkCostFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.5, <strong>Max:</strong> 2, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="experienceCombatFactor">Experience Combat Factor</label>
+                    <p class="description">Scales the experience gained from combat.</p>
+                    <input type="range" id="experienceCombatFactor" min="0.5" max="2" step="0.01" value="1" oninput="document.getElementById('experienceCombatFactorValue').textContent = this.value">
+                    <span id="experienceCombatFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.5, <strong>Max:</strong> 2, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="experienceMiningFactor">Experience Mining Factor</label>
+                    <p class="description">Scales the experience gained from mining.</p>
+                    <input type="range" id="experienceMiningFactor" min="0.5" max="2" step="0.01" value="1" oninput="document.getElementById('experienceMiningFactorValue').textContent = this.value">
+                    <span id="experienceMiningFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.5, <strong>Max:</strong> 2, <strong>Default:</strong> 1</p>
+                </div>
+                <div class="input-group">
+                    <label for="experienceExplorationQuestsFactor">Experience Exploration and Quests Factor</label>
+                    <p class="description">Scales the experience gained from exploration and quests.</p>
+                    <input type="range" id="experienceExplorationQuestsFactor" min="0.5" max="2" step="0.01" value="1" oninput="document.getElementById('experienceExplorationQuestsFactorValue').textContent = this.value">
+                    <span id="experienceExplorationQuestsFactorValue">1</span>
+                    <p class="description"><strong>Min:</strong> 0.5, <strong>Max:</strong> 2, <strong>Default:</strong> 1</p>
+                </div>
+            </div>
+
+            <h3>User Groups</h3>
+            <div class="user-groups-container">
+            </div>       
+            <button id="addGroupButton" class="add-group-button">+ Add Group</button>
+        </div>
+
+        <div>
+            <button id="generateJsonButton" class="generate-json-button">Generate JSON</button>
+        </div>
+        
+        <!-- Modal for displaying the generated JSON -->
+        <div id="jsonModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Generated Server Settings JSON</h2>
+                <textarea id="jsonPreview" rows="20" cols="80" readonly></textarea>
+                <button id="copyJsonButton" class="json-button">Copy to Clipboard</button>
+                <button id="downloadJsonButton" class="json-button">Download JSON</button>
+            </div>
+        </div>
+        
+        <script src="generation-script.js"></script>
+    </body>
+</html>
